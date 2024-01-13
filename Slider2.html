@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .slider {
+        margin: 20px auto;
+        display: flex;
+        overflow: hidden;
+        width: 600px;
+        border-radius: 2px;
+      }
       .image {
         display: none;
       }
@@ -14,24 +26,22 @@
     </style>
   </head>
   <body>
-    <div
-      style="
-        display: flex;
-        overflow: hidden;
-        border: 1px solid black;
-        width: 600px;
-      "
-      class="slider"
-    >
-      <div style="width: 600px" class="active item">
-        <img src="https://picsum.photos/id/598/600/400" alt="" />
+    <div class="slider">
+      <div style="width: 600px">
+        <img
+          src="https://picsum.photos/id/598/600/400"
+          class="active image"
+          alt=""
+        />
+        <img src="https://picsum.photos/id/642/600/400" class="image" />
+        <img src="https://picsum.photos/id/211/600/400" class="image" />
       </div>
-      <div style="width: 600px" class="item">
+      <!-- <div style="width: 600px" class="item">
         <img src="https://picsum.photos/id/642/600/400" alt="" />
       </div>
       <div style="width: 600px" class="item">
         <img src="https://picsum.photos/id/211/600/400" alt="" />
-      </div>
+      </div> -->
     </div>
     <button class="left">Left</button>
     <button class="right">Right</button>
@@ -46,7 +56,7 @@
             next.addClass("active");
           } else {
             current.removeClass("active");
-            $(".item:last-child").addClass("active");
+            $(".image:last-child").addClass("active");
           }
         });
         $(".left").on("click", function () {
@@ -57,7 +67,7 @@
             prev.addClass("active");
           } else {
             current.removeClass("active");
-            $(".item:last-child").addClass("active");
+            $(".image:last-child").addClass("active");
           }
         });
       });
