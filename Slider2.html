@@ -16,12 +16,29 @@
         overflow: hidden;
         width: 600px;
         border-radius: 2px;
+        position: relative;
       }
       .image {
         display: none;
       }
       .active {
         display: block;
+      }
+      .arrowL {
+        font-size: 50px;
+        top: 150px;
+        left: 10px;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+      }
+      .arrowR {
+        font-size: 50px;
+        top: 150px;
+        right: 10px;
+        color: white;
+        text-decoration: none;
+        position: absolute;
       }
     </style>
   </head>
@@ -36,15 +53,10 @@
         <img src="https://picsum.photos/id/642/600/400" class="image" />
         <img src="https://picsum.photos/id/211/600/400" class="image" />
       </div>
-      <!-- <div style="width: 600px" class="item">
-        <img src="https://picsum.photos/id/642/600/400" alt="" />
-      </div>
-      <div style="width: 600px" class="item">
-        <img src="https://picsum.photos/id/211/600/400" alt="" />
-      </div> -->
+      <span href="" class="left arrowL"><</span>
+      <span href="" class="right arrowR">></span>
     </div>
-    <button class="left">Left</button>
-    <button class="right">Right</button>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
