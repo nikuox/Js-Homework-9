@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        overflow: hidden;
+        border: 1px solid black;
+        width: 600px;
+      "
+      class="slider"
+    >
+      <div style="width: 600px" class="active item">
+        <img src="https://picsum.photos/id/598/600/400" alt="" />
+      </div>
+      <div style="width: 600px" class="item">
+        <img src="https://picsum.photos/id/642/600/400" alt="" />
+      </div>
+      <div style="width: 600px" class="item">
+        <img src="https://picsum.photos/id/211/600/400" alt="" />
+      </div>
+    </div>
+    <button class="left">Left</button>
+    <button class="right">Right</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".right").on("click", function () {
+          let current = $(".active");
+          let next = current.next();
+          if (next.length) {
+            current.removeClass("active");
+            next.addClass("active");
+          } else {
+            current.removeClass("active");
+            $(".item:last-child").addClass("active");
+          }
+        });
+        $(".left").on("click", function () {
+          let current = $(".active");
+          let prev = current.prev();
+          if (prev.length) {
+            current.removeClass("active");
+            prev.addClass("active");
+          } else {
+            current.removeClass("active");
+            $(".item:last-child").addClass("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
