@@ -10,7 +10,7 @@ body{
   background: #dddde7;
 }
 
-form{
+div{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,7 +28,7 @@ label{
 }
 
 input{
-  display: inline-block;
+ 
   border: none;
   text-align: left;
   box-shadow: 3px 2px rgba(82, 76, 98, 0.3);
@@ -64,19 +64,48 @@ button:hover{
     </style>
   </head>
   <body>
-    <form>
-        <label> First Name: </label> <br>
-        <input type="text" placeholder="Enter First Name" /> <br>
+    <div>
+        <label> First Name: </label> </br>
+        <input type="text" placeholder="Enter First Name"  data-regex="First_name" /> </br>
+        <p>First Name not valid.</p>
         <label> Last Name: </label> </br>
-        <input type="text" placeholder="Enter Last Name" /><br>
+        <input type="text" placeholder="Enter Last Name" data-regex="Last_name"/><br>
+        <p>Last Name not valid.</p>
         <label> Your Email: </label> </br>
-        <input type="text" placeholder="Enter Email" /></br>
+        <input type="text" placeholder="Enter Email" data-regex="Email" /></br>
+        <p>Email not valid.</p>
         <label> Phone Number: </label> </br>
-        <input type="text" placeholder="Enter Phone Number" /></br>
+        <input type="text" placeholder="Enter Phone Number" data-regex="Phone_number" /></br>
+        <p>Phone Number not valid.</p>
         <label> National Code: </label> </br>
-        <input type="text" placeholder="Enter National Code" /></br>
+        <input type="text" placeholder="Enter National Code" data-regex="National_code" /></br>
+        <p>National Code not valid.</p>
       <br>
       <button> Submit </button>
-      </form>
+    </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script>
+        $(function () {
+          $("input[data-regex]").keyup(function () {
+            let regType = $(this).attr("data-regex");
+            let regex = null;
+            if (regType == "First_name") regex = /^[a-z ,.'-]+$/i;
+            else if (regType == "Last_name") regex = /^[a-z ,.'-]+$/i;
+            else if (regType == "Email")
+              regex =
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            else if (regType == "Phone_number") regex: /^(0|\+98)?9\d{9}$/;
+            // else if (regType == "Address")
+            //   regex: /^\d{1,5}\s\w.\s(\b\w*\b\s){1,2}\w*\$/;
+            let inputVal = $(this).val();
+            if (regex.test(inputVal)) {
+              $(this).next().hide();
+            } else {
+              $(this).next().show();
+            }
+          });
+        });
+      </script>
   </body>
 </html>
