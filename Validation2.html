@@ -9,7 +9,7 @@
         background: #dddde7;
       }
 
-      div {
+      form {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -17,7 +17,6 @@
         background: rgba(0, 0, 0, 0.1);
         padding: 100px;
       }
-
       label {
         font-family: sans-serif;
         letter-spacing: 6px;
@@ -43,7 +42,6 @@
         border: none;
         color: #524f4f;
       }
-
       button {
         background: transparent;
         color: #666363;
@@ -59,41 +57,37 @@
         background: transparent;
         border: 2px solid rgba(69, 39, 160, 0.4);
       }
+      /* input #cname-error{
+        font-family: Arial!important ; 
+        font-size: 15px !important;
+        color: black !important;
+      } */
     </style>
   </head>
-  <div id="commentForm" method="get" action="">
-    <label for="firstname"> First Name: </label> </br>
-    <input id="firstname" type="text" placeholder="Enter First Name"  required /> </br>
-    
-    <label for="lastname"> Last Name: </label> </br>
-    <input id="lastname" type="text" placeholder="Enter Last Name" required/><br>
-   
-    <label for="email"> Your Email: </label> </br>
-    <input id="email" type="text" placeholder="Enter Email" required /></br>
-    
-    <label for="number"> Phone Number: </label> </br>
-    <input id="number" type="text" placeholder="Enter Phone Number" required /></br>
-    
-    
-  <br>
-  <button> Submit </button>
-</div>
   <body>
+    <form class="cmxform" id="commentForm" method="get" action="">
+      <label for="cname">Name (required)</label>
+      <input id="cname" name="name" type="text" required /></br>
+
+      <label for="cemail">E-Mail (required)</label>
+      <input id="cemail" type="email" name="email" required /></br>
+
+      <label for="number">Phone Number: (required)</label>
+      <input id="number" type="number" name="number" /></br>
+
+      <label for="ccomment">Your comment (required)</label>
+      <input id="ccomment" name="comment" required></br>
+
+      <button class="submit" type="submit" >Submit</button>
+    </form>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
     <script src="dist/jquery.validate.js"></script>
-    <script src="dist/additional-methods.js"></script>
-    <script>$( "#commentForm" ).validate({
-        rules: {
-          email: {
-            required: true,
-            email: true
-          }
-        }
-      });
-      </script>
+    <script>
+      $("#commentForm").validate();
+    </script>
   </body>
 </html>
