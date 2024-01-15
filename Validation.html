@@ -4,6 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        background: #dddde7;
+      }
+
+      div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.1);
+        padding: 100px;
+      }
+
+      label {
+        font-family: sans-serif;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        color: #424141;
+      }
+
+      input {
+        border: none;
+        text-align: left;
+        box-shadow: 3px 2px rgba(82, 76, 98, 0.3);
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 350px;
+        margin: 10px 0;
+        background: transparent;
+        color: #3b3939;
+      }
+
+      input:focus {
+        background: none;
+        border: none;
+        color: #524f4f;
+      }
+
+      button {
+        background: transparent;
+        color: #666363;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin: 20px 0;
+        padding: 10px 30px;
+        border: 2px solid #494747;
+      }
+
+      button:hover {
+        background: transparent;
+        border: 2px solid rgba(69, 39, 160, 0.4);
+      }
+    </style>
   </head>
-  <body></body>
+  <div id="commentForm">
+    <label> First Name: </label> </br>
+    <input type="text" placeholder="Enter First Name"  required /> </br>
+    <p>First Name not valid.</p>
+    <label> Last Name: </label> </br>
+    <input type="text" placeholder="Enter Last Name" required/><br>
+    <p>Last Name not valid.</p>
+    <label> Your Email: </label> </br>
+    <input type="text" placeholder="Enter Email" required /></br>
+    <p>Email not valid.</p>
+    <label> Phone Number: </label> </br>
+    <input type="text" placeholder="Enter Phone Number" required /></br>
+    <p>Phone Number not valid.</p>
+    <label> National Code: </label> </br>
+    <input type="text" placeholder="Enter National Code" required /></br>
+    <p>National Code not valid.</p>
+  <br>
+  <button> Submit </button>
+</div>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="dist/jquery.validate.js"></script>
+    <script>$("#commentForm").validate();</script>
+  </body>
 </html>
